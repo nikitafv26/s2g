@@ -46,7 +46,7 @@ namespace S2G.WebAPI.Controllers
         // [ValidateAntiForgeryToken]
         [HttpPost("login")]
         [AllowAnonymous]
-        public async Task<IActionResult> Login([FromBody] LoginDTO model)
+        public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             var result = await _signInManager.PasswordSignInAsync(model.Name, model.Password, true, false); //_signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
 
@@ -59,7 +59,13 @@ namespace S2G.WebAPI.Controllers
 
                 var token = GenerateToken(_appSettings.TokenExpires, id);
 
-                return Ok(token);
+                //_logger.LogInformation($"User [{request.UserName}] logged in the system.");
+                return Ok(new LoginResultModel
+                {
+                    UserName = model.Name,
+                    AccessToken = token,
+                    //RefreshToken = jwtResult.RefreshToken.TokenString
+                });
             }
             else
                 return StatusCode((int)HttpStatusCode.Unauthorized, "Incorrect password");
@@ -69,7 +75,7 @@ namespace S2G.WebAPI.Controllers
         // POST: /Account/register
         [HttpPost("register")]
         [AllowAnonymous]
-        public async Task<IActionResult> Register([FromBody] RegisterDTO model)
+        public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
             var user = new IdentityUser { UserName = model.Name, Email = model.Email };
             //user.Claims.Add(new IdentityUserClaim<string>
@@ -93,7 +99,12 @@ namespace S2G.WebAPI.Controllers
 
                 _logger.LogInformation(typeof(AccountController).Name, "User registered");
 
-                return Ok(token);
+                return Ok(new LoginResultModel
+                {
+                    UserName = model.Name,
+                    AccessToken = token,
+                    //RefreshToken = jwtResult.RefreshToken.TokenString
+                });
             }
 
             _logger.LogInformation(typeof(AccountController).Name, "User not register");

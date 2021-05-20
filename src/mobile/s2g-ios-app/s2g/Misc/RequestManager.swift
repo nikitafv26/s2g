@@ -7,13 +7,13 @@
 
 import Foundation
 
-class RequestManager<T>: NSObject, URLSessionDelegate, URLSessionDataDelegate where T: Codable & Decodable{
+class RequestManager: NSObject, URLSessionDelegate, URLSessionDataDelegate{
     
-    public typealias ResultHandler = (T?, RequestError?) -> Void
-    public var resultHandler : ResultHandler?
+    public typealias ResultHandler<TResult> = (TResult?, RequestError?) -> Void
+    public var resultHandler : ResultHandler<AnyObject>?
     
     var receivedData: Data?
-    var fullUrl: URL
+    //var fullUrl: URL
     
     private lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
@@ -27,9 +27,9 @@ class RequestManager<T>: NSObject, URLSessionDelegate, URLSessionDataDelegate wh
                           delegate: self, delegateQueue: nil)
     }()
     
-    init(fullUrl: URL) {
-        self.fullUrl = fullUrl
-    }
+//    init(fullUrl: URL) {
+//        self.fullUrl = fullUrl
+//    }
     
 //    func startLoad() {
 //        receivedData = Data()
@@ -37,8 +37,9 @@ class RequestManager<T>: NSObject, URLSessionDelegate, URLSessionDataDelegate wh
 //        task.resume()
 //    }
     
-    func post(data: T) {
-        var urlRequest = URLRequest(url: fullUrl)
+    func post<T>(data: T, url: URL) where T: Codable & Decodable {
+        var urlRequest = URLRequest(url: url)
+        //print(fullUrl)
         urlRequest.httpMethod = "POST"
         
         //media type is acceptable for body
@@ -47,7 +48,10 @@ class RequestManager<T>: NSObject, URLSessionDelegate, URLSessionDataDelegate wh
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
         
         do{
-            urlRequest.httpBody = try JSONEncoder().encode(data)
+            let jsonData = try JSONEncoder().encode(data)
+//            let jsonString = String(data: jsonData, encoding: .utf8)!
+//            print(jsonString)
+            urlRequest.httpBody = jsonData
         }catch{
             print(error)
         }
@@ -58,6 +62,10 @@ class RequestManager<T>: NSObject, URLSessionDelegate, URLSessionDataDelegate wh
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         self.receivedData?.append(data)
+        
+        let jsonData = String(data: data, encoding: .utf8)!
+        print(jsonData)
+        //self.resultHandler?(data, nil)
     }
     
     func urlSession(_ session: URLSession, taskIsWaitingForConnectivity task: URLSessionTask){

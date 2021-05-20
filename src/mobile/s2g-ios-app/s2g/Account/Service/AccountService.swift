@@ -7,19 +7,36 @@
 
 import Foundation
 
-public class AccountService{
-    
-    var requestManager: RequestManager<User>
-    var endpoint = Endpoint(path: "/api/account/register", queryItems: nil)
+protocol AccountServiceProtocol {
+    func create(register: Register, completion: @escaping (Register) -> Void)
+    func login(login: Login, completion: @escaping (Login) -> Void)
+}
+
+class AccountService: AccountServiceProtocol {
+
+    var requestManager: RequestManager
+    let baseUrl = "/api/account"
     
     init() {
-        requestManager = RequestManager<User>(fullUrl: endpoint.url!)
+        requestManager = RequestManager()
     }
     
-    func create(_ user: User, completion: @escaping (User) -> Void) {
-        requestManager.post(data: user)
-        requestManager.resultHandler = {(data: User?, error: RequestError?) in
-            print(data?.name ?? "")
+    func create(register: Register, completion: @escaping (Register) -> Void) {
+        let endpoint = Endpoint(path: "\(baseUrl)/register", queryItems: nil)
+        requestManager.post(data: register, url: endpoint.url!)
+        requestManager.resultHandler = {(data: AnyObject?, error: RequestError?) in
+            let result = data as! LoginResult
+            print(result.access_token)
+            print(error?.description ?? "")
+        }
+    }
+    
+    func login(login: Login, completion: @escaping (Login) -> Void) {
+        let endpoint = Endpoint(path: "\(baseUrl)/login", queryItems: nil)
+        requestManager.post(data: login, url: endpoint.url!)
+        requestManager.resultHandler = {(data: AnyObject?, error: RequestError?) in
+            let result = data as! LoginResult
+            print(result.access_token)
             print(error?.description ?? "")
         }
     }

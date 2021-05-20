@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace S2G.WebAPI.Model
 {
-    public class RegisterDTO
+    public class RegisterModel
     {
         [Required]
         public string Name { get; set; }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 public enum ValidatorRule {
     case email
@@ -18,7 +17,7 @@ public protocol Validating{
     func valid(value: String) -> Bool
 }
 
-public extension UITextField{
+public extension String{
     func isValid(value: String, rule: ValidatorRule) -> Bool {
         let validatorFactory = ValidatorFactory(rule: rule)
         let validator = validatorFactory.get()

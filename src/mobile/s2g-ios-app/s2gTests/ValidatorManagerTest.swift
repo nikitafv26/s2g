@@ -8,7 +8,7 @@
 import XCTest
 @testable import s2g
 
-class ValidatorManagerTests: XCTestCase {
+class ValidatorManagerTest: XCTestCase {
 
     private var email: String = "valid@email.com"
     
@@ -35,14 +35,14 @@ class ValidatorManagerTests: XCTestCase {
         XCTAssertTrue(validator is EmailValidator)
     }
     
-    func testUITextFieldIsValid () throws{
-        
-        let emailTextField = UITextField()
-        emailTextField.text = email
-        let testEmail = emailTextField.isValid(value: emailTextField.text!, rule: .email)
-        
-        XCTAssertTrue(testEmail)
-    }
+//    func testUITextFieldIsValid () throws{
+//        
+//        let emailTextField = UITextField()
+//        emailTextField.text = email
+//        let testEmail = emailTextField.isValid(value: emailTextField.text!, rule: .email)
+//        
+//        XCTAssertTrue(testEmail)
+//    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

@@ -8,7 +8,7 @@
 import XCTest
 @testable import s2g
 
-class UserTest: XCTestCase {
+class RegisterTest: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -18,16 +18,16 @@ class UserTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testUserInit() throws {
+    func testRegisterInit() throws {
         let name: String = "Ivan"
         let email: String = "ivan@apple.com"
-        let password: String = "pwd"
+        let pwd: String = "pwd"
         
-        let register = Register(name: name, email: email, password: password)
+        let register = Register(name: name, email: email, pwd: pwd)
         
         XCTAssertEqual(register.name, name)
         XCTAssertEqual(register.email, email)
-        XCTAssertEqual(register.password, password)
+        XCTAssertEqual(register.pwd, pwd)
     }
 
     func testPerformanceExample() throws {
