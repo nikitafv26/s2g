@@ -17,4 +17,11 @@ class EmailLoginViewModelTest: XCTestCase {
         mockAccountService = MockAccountService()
         viewModel = .init(accountService: mockAccountService)
     }
+    
+    func testLogin() {
+        
+        viewModel.sendLoginData(name: "Ivan", pwd: "pwd")
+        
+        XCTAssertNil(nil)
+    }
 }

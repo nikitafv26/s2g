@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftKeychainWrapper
 
 protocol EmailLoginViewModelDelegate {
     func validateLoginData(name: String, pwd: String) -> Bool
@@ -34,8 +35,15 @@ extension EmailLoginViewModel: EmailLoginViewModelDelegate{
     
     func sendLoginData(name: String, pwd: String) {
         let data = Login(name: name, pwd: pwd)
-        accountService.login(login: data, completion: {(login) in
-            self.delegate?.getLoginResult(status: "ok, email: \(login.name)")
+        accountService.login(login: data, completion: {(loginResult, requestError) in
+            
+            self.delegate?.getLoginResult(status: "OK")
+            
+            print(loginResult?.access_token ?? "")
+            print(loginResult?.refresh_token ?? "")
+            print(requestError?.code ?? "")
+            print(requestError?.description ?? "")
+            //self.delegate?.getLoginResult(status: "ok, email: \(login.)")
         })
     }
 }

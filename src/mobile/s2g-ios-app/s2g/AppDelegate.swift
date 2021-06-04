@@ -6,40 +6,31 @@
 //
 
 import UIKit
+import SwiftyBeaver
+let log = SwiftyBeaver.self
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // Override point for customization after application launch.
-        
-//        var storyboard: String
-//        var viewControllerType: Any
-//
-//        let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
-//        if(accessToken != nil){
-//            storyboard = "Main"
-//            viewControllerType = FeedListViewController.self
-//        }
-//        else{
-//            storyboard = "Account"
-//            viewControllerType = LoginViewController.self
-//        }
-//
-//        initiateViewController(storyboard: storyboard, viewControllerType: viewControllerType)
+        // add log destinations. at least one is needed!
+        let console = ConsoleDestination()  // log to Xcode Console
+        //let file = FileDestination()  // log to default swiftybeaver.log file
+        //let cloud = SBPlatformDestination(appID: "foo", appSecret: "bar", encryptionKey: "123")
+
+        // use custom format and set console output to short time, log level & message
+        console.format = "$DHH:mm:ss$d $L $M"
+        // or use this for JSON output: console.format = "$J"
+
+        // add the destinations to SwiftyBeaver
+        log.addDestination(console)
+        //log.addDestination(file)
+        //log.addDestination(cloud)
         
         return true
     }
     
-//    func initiateViewController(storyboard: String, viewControllerType: Any) {
-//        let storyboard: UIStoryboard = UIStoryboard(name: storyboard, bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: String(describing: viewControllerType.self))
-//        self.window?.rootViewController = vc
-//        self.window?.makeKeyAndVisible()
-//        
-//    }
-
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

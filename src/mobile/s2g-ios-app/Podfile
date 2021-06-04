@@ -7,6 +7,7 @@ target 's2g' do
 
   # Pods for s2g
   pod 'SwiftKeychainWrapper', '~> 4.0'
+  pod 'SwiftyBeaver'
 
   target 's2gTests' do
     inherit! :search_paths

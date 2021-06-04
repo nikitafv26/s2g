@@ -1,16 +1,20 @@
 PODS:
   - SwiftKeychainWrapper (4.0.1)
+  - SwiftyBeaver (1.9.5)
 
 DEPENDENCIES:
   - SwiftKeychainWrapper (~> 4.0)
+  - SwiftyBeaver
 
 SPEC REPOS:
   trunk:
     - SwiftKeychainWrapper
+    - SwiftyBeaver
 
 SPEC CHECKSUMS:
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
+  SwiftyBeaver: 84069991dd5dca07d7069100985badaca7f0ce82
 
-PODFILE CHECKSUM: 4e909a6173ce1a84ea580e89633e002fe332ea42
+PODFILE CHECKSUM: d8b85c86318cd7ce6c5f9c3e41f65bf408a6ecb2
 
 COCOAPODS: 1.10.0

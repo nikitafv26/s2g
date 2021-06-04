@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9jG-3Z-Frs">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="8Ys-JM-bz7" customClass="EmailLoginViewController" customModule="s2g" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dIm-mj-GlK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log into your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpo-Uc-7Rt">
-                                <rect key="frame" x="122" y="319" width="170" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log into your account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpo-Uc-7Rt">
+                                <rect key="frame" x="122" y="78" width="492" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="VEa-a2-deZ"/>
                                 </constraints>
@@ -26,10 +26,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="S2G" translatesAutoresizingMaskIntoConstraints="NO" id="9Zm-BV-45h">
-                                <rect key="frame" x="164.66666666666666" y="98" width="85" height="211"/>
+                                <rect key="frame" x="325.66666666666669" y="54" width="85" height="14"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vQQ-30-XTf" customClass="LoginTextField" customModule="s2g" customModuleProvider="target">
-                                <rect key="frame" x="45" y="361" width="324" height="48"/>
+                                <rect key="frame" x="45" y="120" width="646" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="BUa-6D-9ub"/>
                                 </constraints>
@@ -37,13 +37,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIt-uw-ebi">
-                                <rect key="frame" x="53.666666666666664" y="366.66666666666669" width="29.333333333333336" height="12"/>
+                                <rect key="frame" x="53.666666666666664" y="125.66666666666669" width="29.333333333333336" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.43529411759999997" green="0.43529411759999997" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jnH-zk-NZc" customClass="LoginTextField" customModule="s2g" customModuleProvider="target">
-                                <rect key="frame" x="45" y="424" width="324" height="48"/>
+                                <rect key="frame" x="45" y="183" width="646" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="T9y-KW-kxg"/>
                                 </constraints>
@@ -51,13 +51,13 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohQ-56-cAv">
-                                <rect key="frame" x="53" y="429.66666666666669" width="57.666666666666657" height="12"/>
+                                <rect key="frame" x="53" y="188.66666666666666" width="57.666666666666657" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.43529411759999997" green="0.43529411759999997" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Juh-Oa-sYN">
-                                <rect key="frame" x="182.66666666666666" y="809" width="49" height="33"/>
+                                <rect key="frame" x="343.66666666666669" y="361" width="49" height="33"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Log in">
                                     <color key="titleColor" red="1" green="0.74509803919999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -105,11 +105,11 @@
             <objects>
                 <viewController id="C2j-Kt-b8t" customClass="LoginViewController" customModule="s2g" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EW3-lg-x5s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5VJ-Fi-Xta">
-                                <rect key="frame" x="144.66666666666666" y="809" width="124.99999999999997" height="33"/>
+                                <rect key="frame" x="305.66666666666669" y="361" width="125" height="33"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Create account">
                                     <color key="titleColor" red="1" green="0.74509803921568629" blue="0.0" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
@@ -119,16 +119,16 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3A-lB-Mpc">
-                                <rect key="frame" x="15" y="394" width="384" height="108"/>
+                                <rect key="frame" x="15" y="153" width="706" height="108"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram" translatesAutoresizingMaskIntoConstraints="NO" id="LM7-w9-6aF">
-                                        <rect key="frame" x="37" y="14" width="80" height="80"/>
+                                        <rect key="frame" x="198" y="14" width="80" height="80"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook" translatesAutoresizingMaskIntoConstraints="NO" id="I4D-Ia-ITo">
-                                        <rect key="frame" x="267" y="14" width="80" height="80"/>
+                                        <rect key="frame" x="428" y="14" width="80" height="80"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google-plus" translatesAutoresizingMaskIntoConstraints="NO" id="stG-Iz-HaZ">
-                                        <rect key="frame" x="152" y="14" width="80" height="80"/>
+                                        <rect key="frame" x="313" y="14" width="80" height="80"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -146,25 +146,25 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="u" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuK-Z1-Tc9">
-                                <rect key="frame" x="202" y="363" width="10" height="21"/>
+                                <rect key="frame" x="363" y="122" width="10" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have an acco" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omF-MF-EGi">
-                                <rect key="frame" x="99" y="357" width="103" height="33"/>
+                                <rect key="frame" x="260" y="116" width="103" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nt?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2Y-oc-Qb8">
-                                <rect key="frame" x="212" y="363" width="24" height="21"/>
+                                <rect key="frame" x="373" y="122" width="24" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zx-0i-RL4">
-                                <rect key="frame" x="242" y="357" width="49" height="33"/>
+                                <rect key="frame" x="403" y="116" width="49" height="33"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Log in">
                                     <color key="titleColor" red="1" green="0.74509803921568629" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -208,11 +208,11 @@
             <objects>
                 <viewController id="qb9-OS-CHz" customClass="CreateAccountViewController" customModule="s2g" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8E1-50-IRQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Djt-Uo-zWS" customClass="LoginTextField" customModule="s2g" customModuleProvider="target">
-                                <rect key="frame" x="45" y="361" width="324" height="48"/>
+                                <rect key="frame" x="45" y="120" width="646" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="FIe-yh-uLe"/>
                                 </constraints>
@@ -220,13 +220,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAD-Ee-M4F">
-                                <rect key="frame" x="53.666666666666664" y="366.66666666666669" width="29.333333333333336" height="12"/>
+                                <rect key="frame" x="53.666666666666664" y="125.66666666666669" width="29.333333333333336" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eSG-it-91d" customClass="LoginTextField" customModule="s2g" customModuleProvider="target">
-                                <rect key="frame" x="45" y="424" width="324" height="48"/>
+                                <rect key="frame" x="45" y="183" width="646" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="pxj-cj-6ky"/>
                                 </constraints>
@@ -234,13 +234,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dO-bj-4LQ">
-                                <rect key="frame" x="52.999999999999993" y="429.66666666666669" width="30.666666666666664" height="12"/>
+                                <rect key="frame" x="52.999999999999993" y="188.66666666666666" width="30.666666666666664" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.43529411759999997" green="0.43529411759999997" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ows-fR-zt5" customClass="LoginTextField" customModule="s2g" customModuleProvider="target">
-                                <rect key="frame" x="45" y="487" width="324" height="48"/>
+                                <rect key="frame" x="45" y="246" width="646" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="oT3-Fb-g8B"/>
                                 </constraints>
@@ -248,19 +248,19 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Create an account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xt-VZ-JES">
-                                <rect key="frame" x="0.0" y="319.66666666666669" width="414" height="20.333333333333314"/>
+                                <rect key="frame" x="0.0" y="78.666666666666671" width="736" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qv4-nS-ASw">
-                                <rect key="frame" x="53" y="492.66666666666669" width="57.666666666666657" height="12"/>
+                                <rect key="frame" x="53" y="251.66666666666663" width="57.666666666666657" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.43529411759999997" green="0.43529411759999997" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaT-l7-gAR">
-                                <rect key="frame" x="179.66666666666666" y="809" width="55" height="33"/>
+                                <rect key="frame" x="340.66666666666669" y="361" width="55" height="33"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Create">
                                     <color key="titleColor" red="1" green="0.74509803921568629" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -270,7 +270,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="S2G" translatesAutoresizingMaskIntoConstraints="NO" id="IxG-rT-jiB">
-                                <rect key="frame" x="164.66666666666666" y="97.999999999999986" width="85" height="211.66666666666663"/>
+                                <rect key="frame" x="325.66666666666669" y="54" width="85" height="14.666666666666671"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i6L-qA-qiQ"/>
@@ -322,7 +322,7 @@
                 <navigationController storyboardIdentifier="LoginNC" automaticallyAdjustsScrollViewInsets="NO" id="9jG-3Z-Frs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gvV-d8-QRS">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -337,19 +337,19 @@
     </scenes>
     <designables>
         <designable name="Djt-Uo-zWS">
-            <size key="intrinsicContentSize" width="5" height="22"/>
+            <size key="intrinsicContentSize" width="21" height="36"/>
         </designable>
         <designable name="eSG-it-91d">
-            <size key="intrinsicContentSize" width="5" height="22"/>
+            <size key="intrinsicContentSize" width="21" height="36"/>
         </designable>
         <designable name="jnH-zk-NZc">
-            <size key="intrinsicContentSize" width="5" height="21"/>
+            <size key="intrinsicContentSize" width="21" height="35"/>
         </designable>
         <designable name="ows-fR-zt5">
-            <size key="intrinsicContentSize" width="5" height="21"/>
+            <size key="intrinsicContentSize" width="21" height="35"/>
         </designable>
         <designable name="vQQ-30-XTf">
-            <size key="intrinsicContentSize" width="5" height="22"/>
+            <size key="intrinsicContentSize" width="21" height="36"/>
         </designable>
     </designables>
     <resources>

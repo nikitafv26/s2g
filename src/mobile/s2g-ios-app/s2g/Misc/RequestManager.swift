@@ -10,7 +10,7 @@ import Foundation
 class RequestManager: NSObject, URLSessionDelegate, URLSessionDataDelegate{
     
     public typealias ResultHandler<TResult> = (TResult?, RequestError?) -> Void
-    public var resultHandler : ResultHandler<AnyObject>?
+    public var resultHandler : ResultHandler<Any>?
     
     var receivedData: Data?
     //var fullUrl: URL
@@ -27,19 +27,10 @@ class RequestManager: NSObject, URLSessionDelegate, URLSessionDataDelegate{
                           delegate: self, delegateQueue: nil)
     }()
     
-//    init(fullUrl: URL) {
-//        self.fullUrl = fullUrl
-//    }
-    
-//    func startLoad() {
-//        receivedData = Data()
-//        let task = session.dataTask(with: fullUrl)
-//        task.resume()
-//    }
     
     func post<T>(data: T, url: URL) where T: Codable & Decodable {
         var urlRequest = URLRequest(url: url)
-        //print(fullUrl)
+        print(url)
         urlRequest.httpMethod = "POST"
         
         //media type is acceptable for body
@@ -49,8 +40,6 @@ class RequestManager: NSObject, URLSessionDelegate, URLSessionDataDelegate{
         
         do{
             let jsonData = try JSONEncoder().encode(data)
-//            let jsonString = String(data: jsonData, encoding: .utf8)!
-//            print(jsonString)
             urlRequest.httpBody = jsonData
         }catch{
             print(error)
@@ -63,8 +52,10 @@ class RequestManager: NSObject, URLSessionDelegate, URLSessionDataDelegate{
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         self.receivedData?.append(data)
         
-        let jsonData = String(data: data, encoding: .utf8)!
-        print(jsonData)
+        //let jsonData = String(data: data, encoding: .utf8)!
+        //print(jsonData)
+        
+        self.resultHandler?(data, nil)
         //self.resultHandler?(data, nil)
     }
     

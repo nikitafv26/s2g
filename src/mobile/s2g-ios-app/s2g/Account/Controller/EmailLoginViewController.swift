@@ -21,6 +21,7 @@ class EmailLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         emailLoginViewModel.delegate = self
+        dismissKeybord()
     }
 }
 
@@ -44,5 +45,11 @@ private extension EmailLoginViewController{
             return
         }
         emailLoginViewModel.sendLoginData(name: nameTextField.text!, pwd: pwdTextFiled.text!)
+    }
+    
+    func dismissKeybord() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
 }

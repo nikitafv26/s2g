@@ -5,6 +5,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -64,7 +65,7 @@ namespace S2G.WebAPI.Controllers
                 {
                     UserName = model.Name,
                     AccessToken = token,
-                    //RefreshToken = jwtResult.RefreshToken.TokenString
+                    RefreshToken = GenerateRefreshToken()
                 });
             }
             else
@@ -103,7 +104,7 @@ namespace S2G.WebAPI.Controllers
                 {
                     UserName = model.Name,
                     AccessToken = token,
-                    //RefreshToken = jwtResult.RefreshToken.TokenString
+                    RefreshToken = GenerateRefreshToken()
                 });
             }
 
@@ -141,6 +142,14 @@ namespace S2G.WebAPI.Controllers
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
+        }
+
+        private string GenerateRefreshToken()
+        {
+            var randomNumber = new byte[32];
+            using var randomNumberGenerator = RandomNumberGenerator.Create();
+            randomNumberGenerator.GetBytes(randomNumber);
+            return Convert.ToBase64String(randomNumber);
         }
     }
 }
