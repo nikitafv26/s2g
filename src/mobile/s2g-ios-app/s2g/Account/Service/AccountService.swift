@@ -14,11 +14,13 @@ protocol AccountServiceProtocol {
 
 class AccountService: AccountServiceProtocol {
 
-    var requestManager: RequestManager
+    let requestManager: RequestManager
+    let tokenManager: TokenManager
     let baseUrl = "/api/account"
     
     init() {
         requestManager = RequestManager()
+        tokenManager = TokenManager()
     }
     
     func create(register: Register, completion: @escaping (Register) -> Void) {
@@ -39,6 +41,15 @@ class AccountService: AccountServiceProtocol {
                 completion(nil, error)
                 return
             }
+            
+            //save tokens to keychain
+            self.tokenManager.save(accessToken: result.access_token, refreshToken: result.refresh_token)
+            
+            DispatchQueue.main.async {
+                log.info("saved tokens to keychain")
+            }
+            
+            
             completion(result, nil)
         }
     }

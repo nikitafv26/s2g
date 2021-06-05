@@ -2,17 +2,22 @@
 //  FeedListViewController.swift
 //  s2g
 //
-//  Created by Nikita Fedorenko on 11.11.2020.
+//  Created by Nikita Fedorenko on 05.06.2021.
 //
 
 import UIKit
+import SwiftUI
 
 class FeedListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let swiftUIController = UIHostingController(rootView: FeedListView())
+        addChild(swiftUIController)
+        view.addSubview(swiftUIController.view)
+        
+        swiftUIController.didMove(toParent: self)
     }
     
 
