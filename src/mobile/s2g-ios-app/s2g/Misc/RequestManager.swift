@@ -9,11 +9,9 @@ import Foundation
 
 class RequestManager: NSObject, URLSessionDelegate, URLSessionDataDelegate{
     
-    public typealias ResultHandler<TResult> = (TResult?, RequestError?) -> Void
-    public var resultHandler : ResultHandler<Any>?
+    public typealias ResultHandler = (Data?, RequestError?) -> Void
+    public var resultHandler : ResultHandler?
     
-    var receivedData: Data?
-    //var fullUrl: URL
     
     private lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
@@ -26,7 +24,6 @@ class RequestManager: NSObject, URLSessionDelegate, URLSessionDataDelegate{
         return URLSession(configuration: configuration,
                           delegate: self, delegateQueue: nil)
     }()
-    
     
     func post<T>(data: T, url: URL) where T: Codable & Decodable {
         var urlRequest = URLRequest(url: url)
@@ -50,22 +47,23 @@ class RequestManager: NSObject, URLSessionDelegate, URLSessionDataDelegate{
     }
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        self.receivedData?.append(data)
+        //self.receivedData?.append(data)
         
         //let jsonData = String(data: data, encoding: .utf8)!
         //print(jsonData)
         
         self.resultHandler?(data, nil)
-        //self.resultHandler?(data, nil)
     }
     
     func urlSession(_ session: URLSession, taskIsWaitingForConnectivity task: URLSessionTask){
         self.resultHandler?(nil, RequestError(code: 1004, description: "Waiting for connectivity"))
         //RequestResult(data: nil, error: nil, msg: "Waiting for connectivity")
+        
+        //self.requestError = RequestError(code: 1004, description: "Waiting for connectivity")
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        print(receivedData ?? "")
+        //print(receivedData ?? "")
     }
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {

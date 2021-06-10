@@ -8,5 +8,6 @@
 import Foundation
 
 enum GlobalSettings {
-    
+    static let access_token: String = "accessToken"
+    static let refresh_token: String = "refreshToken"
 }

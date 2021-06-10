@@ -27,15 +27,13 @@ class Login : Codable {
 public class LoginResult : Decodable
 {
     var name: String = ""
-    var role: String = ""
     var access_token: String = ""
     var refresh_token: String = ""
     
     enum CodingKeys: String, CodingKey {
         case
-            name = "UserName",
-            role = "Role",
-            access_token = "AccessToken",
-            refresh_token = "RefreshToken"
+            name = "userName",
+            access_token = "accessToken",
+            refresh_token = "refreshToken"
     }
 }

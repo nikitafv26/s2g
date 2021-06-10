@@ -20,20 +20,17 @@ protocol TokenManagerProtocol {
 
 class TokenManager: TokenManagerProtocol {
     
-    let access_token: String = "accessToken"
-    let refresh_token: String = "refreshToken"
-    
     func save(accessToken: String, refreshToken: String) {
-        KeychainWrapper.standard.set(accessToken, forKey: accessToken)
-        KeychainWrapper.standard.set(refreshToken, forKey: refreshToken)
+        KeychainWrapper.standard.set(accessToken, forKey: GlobalSettings.access_token)
+        KeychainWrapper.standard.set(refreshToken, forKey: GlobalSettings.refresh_token)
     }
     
     func get(tokenType: TokenType) -> String? {
         switch tokenType {
         case .access:
-            return KeychainWrapper.standard.string(forKey: access_token)
+            return KeychainWrapper.standard.string(forKey: GlobalSettings.access_token)
         case .refresh:
-            return KeychainWrapper.standard.string(forKey: refresh_token)
+            return KeychainWrapper.standard.string(forKey: GlobalSettings.refresh_token)
         }
     }
 }

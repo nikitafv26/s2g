@@ -36,21 +36,24 @@ class AccountService: AccountServiceProtocol {
     func login(login: Login, completion: @escaping (LoginResult?, RequestError?) -> Void) {
         let endpoint = Endpoint(path: "\(baseUrl)/login", queryItems: nil)
         requestManager.post(data: login, url: endpoint.url!)
-        requestManager.resultHandler = {(data: Any?, error: RequestError?) in
-            guard let result = data as? LoginResult else {
+        requestManager.resultHandler = {(data: Data?, error: RequestError?) in
+            guard let data = data else {
                 completion(nil, error)
                 return
             }
             
-            //save tokens to keychain
-            self.tokenManager.save(accessToken: result.access_token, refreshToken: result.refresh_token)
-            
-            DispatchQueue.main.async {
+            do{
+                let result = try JSONDecoder().decode(LoginResult.self, from: data)
+                
+                //save tokens to keychain
+                self.tokenManager.save(accessToken: result.access_token, refreshToken: result.refresh_token)
                 log.info("saved tokens to keychain")
+                
+                completion(result, nil)
+            }catch{
+                log.error("\(error.localizedDescription)")
             }
             
-            
-            completion(result, nil)
         }
     }
     

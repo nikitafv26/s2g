@@ -11,13 +11,14 @@ import SwiftKeychainWrapper
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let tokenManager = TokenManager()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-        let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
+        let accessToken: String? = tokenManager.get(tokenType: .access)
         if(accessToken == nil){
             let storyboard: UIStoryboard = UIStoryboard(name: "Account", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "LoginNC")
